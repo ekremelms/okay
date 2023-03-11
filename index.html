@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Okay - get sh*t done</title>
+
+
+
+<style type="text/css">
+
+
+:root {
+--opacity-100: rgba(255,255,255,1);
+--opacity-80: rgba(255,255,255,0.8);
+--opacity-60: rgba(255,255,255,0.6);
+--opacity-40: rgba(255,255,255,0.4);
+--opacity-20: rgba(255,255,255,0.2);
+--opacity-10: rgba(255,255,255,0.1);
+--opacity-8: rgba(255,255,255,0.08);
+--opacity-4: rgba(255,255,255,0.04);
+--opacity-2: rgba(255,255,255,0.02);
+}	
+
+
+* { margin: 0; padding: 0; box-sizing: border-box;  color: var(--opacity-100); text-rendering: optimizeLegibility; transition: all 0.1s ease-in-out; font-weight: normal; }
+
+body { font-family: Inter, sans-serif; background: #171C20; font-size: 14px; line-height: 20px; gap: 24px; padding: 40px; display: flex; flex-direction: column; height: 100vh; }
+
+header, footer { width: 100%; vertical-align: center; }
+
+header a:hover { opacity: 0.7; }
+
+section { width: 100%; flex-grow: 1; flex:1; display: flex; flex-direction: row; gap: 16px; align-items: flex-start; }
+
+section .day { flex-grow: 1; flex-basis: 0; background: var(--opacity-2); padding: 16px; border-radius: 12px; row-gap: 12px; }
+
+section .day .todo:first-of-type { margin-top: 16px; }
+
+h2 { background: none; font-size: 14px; line-height: 16px; width: 100%; vertical-align: center; text-shadow: 4px 0px 10px rgba(255,255,255,0.15); }
+
+h2 span { margin-left: 6px; text-shadow: none; }
+
+footer h2 { float: left; display: block; width: unset; margin-right: 32px; font-size: 12px; }
+
+h2 a svg { float: right; fill: var(--opacity-20); }
+
+h2 a svg:hover { fill: var(--opacity-80); }
+
+a { text-decoration: none; }
+
+footer svg { margin-bottom: -1px; }
+
+.muted { color: var(--opacity-20); }
+
+.todo { background: var(--opacity-2); color: var(--opacity-60); padding: 6px 32px 6px 8px; width: 100%; border-radius: 8px; margin-top: 10px; cursor: pointer; backdrop-filter: blur(4px); }
+
+.todo:focus { outline: 2px solid var(--opacity-20); background: var(--opacity-8); backdrop-filter: blur(4px); color: var(--opacity-100) }
+
+.todo:hover { background: var(--opacity-8); backdrop-filter: blur(4px); }
+
+.todo:active { backdrop-filter: blur(4px); }
+
+.overdue { color: #FFCE50!important; }
+
+.complete { background: #171C20; text-decoration: line-through; color: var(--opacity-10); }
+
+.about { float: right; font-size: 12px; line-height: 12px; color: var(--opacity-40); }
+
+.account { float: right; padding: 9px 12px; color: var(--opacity-100); background: var(--opacity-8); border-radius: 8px; }
+
+.nav { width: 32px; height: 32px; background: var(--opacity-2); }
+
+.overlay { position: fixed; width: 100%; height: 100%; backdrop-filter: blur(4px); background: rgba(23,28,32,0.7); top: 0; left: 0; z-index: 99999; display: none; }
+
+.todo:hover .repeat-button { opacity: 0.4; }
+
+.repeat-button { width: 24px; height: 24px; opacity: 0; position: absolute; top: 4px; right: 4px; z-index: 999; cursor: pointer; padding: 4px; border-radius: 6px; }
+
+.todo:hover .repeat-button:hover { opacity: 1; background: var(--opacity-8); }
+	
+	
+</style>
+
+
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<header>
+  <a href="#">
+    <img src="okay.svg">
+  </a>
+
+
+  <a class="account" href="#">Account</a>
+</header>
+<section>
+  <div id="" class="day">
+    <h2>12 <span class="muted">Tue</span>
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" viewBox="0 0 256 256">
+          <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+        </svg>
+      </a>
+    </h2>
+    <div class="todo overdue" contenteditable="true">Overdue item<a href="#" class="repeat-button"><img src="repeat.svg"></a></div>
+    <div class="todo " contenteditable="true">Example todo<a href="#" class="repeat-button"><img src="repeat.svg"></a></div>
+    <div class="todo " contenteditable="true">Example todo<a href="#" class="repeat-button"><img src="repeat.svg"></a></div>
+    <div class="todo " contenteditable="true">Example todo<a href="#" class="repeat-button"><img src="repeat.svg"></a></div>
+    <div class="todo " contenteditable="true">Example todo<a href="#" class="repeat-button"><img src="repeat.svg"></a></div>
+    <div class="todo " contenteditable="true">Example todo<a href="#" class="repeat-button"><img src="repeat.svg"></a></div>
+    <div class="todo complete" contenteditable="true">Completed todo</div>
+  </div>
+  <div id="" class="day">
+    <h2>13 <span class="muted">Tue</span>
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" viewBox="0 0 256 256">
+          <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+        </svg>
+      </a>
+    </h2>
+    <div class="todo" contenteditable="true">Example todo</div>
+    <div class="todo" contenteditable="true">Example todo</div>
+    <div class="todo" contenteditable="true">Example todo</div>
+  </div>
+  <div id="" class="day">
+    <h2>14 <span class="muted">Tue</span>
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" viewBox="0 0 256 256">
+          <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+        </svg>
+      </a>
+    </h2>
+    <div class="todo" contenteditable="true">Example todo</div>
+    <div class="todo" contenteditable="true">Example todo</div>
+    <div class="todo" contenteditable="true">Example todo</div>
+    <div class="todo" contenteditable="true">Example todo</div>
+  </div>
+  <div id="" class="day">
+    <h2>15 <span class="muted">Tue</span>
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" viewBox="0 0 256 256">
+          <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+        </svg>
+      </a>
+    </h2>
+    <div class="todo" contenteditable="true">Example todo</div>
+  </div>
+  <div id="" class="day">
+    <h2>16 <span class="muted">Tue</span>
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" viewBox="0 0 256 256">
+          <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+        </svg>
+      </a>
+    </h2>
+  </div>
+</section>
+<footer>
+  <h2>Arrows <span class="muted">to move around</span>
+  </h2>
+  <h2>K / Double-click <span class="muted">to close</span>
+  </h2>
+  <h2>Enter / Click <span class="muted">to edit</span>
+  </h2>
+  <h2>N / <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#ffffff" stroke-width="3" viewBox="0 0 256 256">
+      <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+    </svg>
+    <span class="muted">to create</span>
+  </h2>
+  <h2>R / <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#ffffff" viewBox="0 0 256 256"><path d="M197.67,186.37a8,8,0,0,1,0,11.29C196.58,198.73,170.82,224,128,224c-37.39,0-64.53-22.4-80-39.85V208a8,8,0,0,1-16,0V160a8,8,0,0,1,8-8H88a8,8,0,0,1,0,16H55.44C67.76,183.35,93,208,128,208c36,0,58.14-21.46,58.36-21.68A8,8,0,0,1,197.67,186.37ZM216,40a8,8,0,0,0-8,8V71.85C192.53,54.4,165.39,32,128,32,85.18,32,59.42,57.27,58.34,58.34a8,8,0,0,0,11.3,11.34C69.86,69.46,92,48,128,48c35,0,60.24,24.65,72.56,40H168a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V48A8,8,0,0,0,216,40Z"></path></svg></path>
+    </svg>
+    <span class="muted">to repeat</span>
+  </h2>
+  <h2>Esc / Drop out <span class="muted">to remove</span>
+  </h2>
+  <a href="#" class="about">Provide feedback</a>
+
+
+
+
+</body>
+</html>
